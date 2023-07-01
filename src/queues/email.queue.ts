@@ -11,11 +11,10 @@ const sendNewEmail = async (email: {
   from: string;
   to: string;
   subject: string;
-  html: string;
+  text: string;
 }) => {
-  emailQueue.add({ email }, {
-    attempts: 3,
-    delay: 1000 * 60 * 5
+  emailQueue.add({ ...email }, {
+    attempts: 3
   });
 };
 

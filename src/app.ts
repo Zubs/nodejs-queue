@@ -7,9 +7,9 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/send-email', async (req, res) => {
-    const { from, to, subject, html } = req.body;
+    const { from, to, subject, text } = req.body;
 
-    await sendNewEmail({ from, to, subject, html });
+    await sendNewEmail({ from, to, subject, text });
 
     res.json({
       message: 'Email sent'
